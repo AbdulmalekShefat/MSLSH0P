@@ -59,7 +59,7 @@
         // Does some stuff and logs the event to the console
         var bodyStyles = window.getComputedStyle(document.body);
         var accent_color = bodyStyles.getPropertyValue('--accent-highlight-color');
-        $("#form").load("forms/reset-password.html", function (response, status, xhr) {
+        $("#form").load("forms/login.html", function(response, status, xhr) {
             if (status == "error") {
                 var msg = "Sorry but there was an error: ";
                 // $("#error").html(msg + xhr.status + " " + xhr.statusText);
@@ -69,4 +69,5 @@
         });
     </script>
 </body>
+
 </html>
