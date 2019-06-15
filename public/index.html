@@ -26,7 +26,6 @@
 
 </head>
 
-
 <body>
     <header>
         <div id="header"></div>
@@ -64,6 +63,14 @@
                     } else {
                         $.getScript("js/sidenav.js");
                         $("#stores").css('background', accent_color);
+                        name = user.displayName;
+                        email = user.email;
+                        photoUrl = user.photoURL;
+                        emailVerified = user.emailVerified;
+                        uid = user.uid;
+                        $("#picture").attr("src", pp);
+                        $("#name").text(name);
+                        $("#email").text(email);
                     }
                 });
             } else {
