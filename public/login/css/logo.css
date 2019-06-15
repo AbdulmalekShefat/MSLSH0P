@@ -1,0 +1,111 @@
+.top-nav {
+    text-align: center;
+}
+
+h1.logo {
+    margin: 0;
+    padding: 1.0rem;
+    vertical-align: middle;
+    font: 36px 'Arial Narrow', sans-serif;
+    /* I picked this font because it's the closest looking 'web safe' font http://cssfontstack.com/ */
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+}
+
+@media (max-width: 992px) {
+    h1.logo {
+        font: 30px 'Arial Narrow', sans-serif;
+    }
+}
+
+@media (max-width: 768px) {
+    h1.logo {
+        font: 24px 'Arial Narrow', sans-serif;
+    }
+}
+
+@media (max-width: 576px) {
+    h1.logo {
+        font: 20px 'Arial Narrow', sans-serif;
+    }
+}
+
+
+/* stuff for both words */
+
+.logo span {
+    position: relative;
+}
+
+
+/* stuff for 1st word */
+
+.logo .word1 {
+    /*text-shadow: 1px 1px 4px #000000;*/
+    color: var(--accent-color);
+    margin-right: -10px;
+    transform: rotateY(180deg);
+    /* using Prefix free */
+    display: inline-block;
+    /* required for transform */
+    z-index: 10;
+    /* stack 1st word on top */
+}
+
+.logo .word1:before {
+    right: -4px;
+    /* would be left, but we flipped the word */
+    top: -9px;
+    border-top-color: white;
+    /* match background color */
+    border-right-color: white;
+    /* would be left, but we flipped the word */
+}
+
+.logo .word1:after {
+    left: 17px;
+    /* would be right, but we flipped the word */
+    bottom: -15px;
+    border-bottom-color: white;
+    border-left-color: white;
+    /* would be right, but we flipped the word */
+}
+
+
+/* stuff for 3rd word */
+
+.logo .word3 {
+    z-index: 0;
+    color: var(--accent-color);
+    font-size: 16px;
+    top: -6px;
+    vertical-align: super;
+    font-style: italic;
+    margin-left: -32px;
+    letter-spacing: 0px;
+    /* stack 2nd word below */
+}
+
+
+/* stuff for 2nd word */
+
+.logo .word2 {
+    z-index: 0;
+    color: var(--dark-gray);
+    /* stack 2nd word below */
+}
+
+.logo .word2:before {
+    left: -4px;
+    top: -6px;
+    border-top-color: white;
+    border-left-color: white;
+}
+
+.logo .word2:after {
+    right: -4px;
+    bottom: 4px;
+    border-bottom-color: white;
+    border-right-color: white;
+}

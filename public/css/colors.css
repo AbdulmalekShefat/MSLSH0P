@@ -1,0 +1,19 @@
+:root {
+    --accent-color: #F06292;
+    --dark-gray: #282828;
+    --accent-ripple-color: #F48FB1;
+    --accent-highlight-color: #F8BBD0;
+    --main-padding: 15px;
+}
+
+
+/*
+  When creating your CSS selector,
+  change "brown" to something of your choosing
+  */
+
+.waves-effect.waves-accent .waves-ripple {
+    /* The alpha value allows the text and background color
+    of the button to still show through. */
+    background-color: var(--accent-ripple-color);
+}
