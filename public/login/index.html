@@ -5,6 +5,8 @@
     <title>تسجيل الدخول</title>
     <meta charset="UTF-8">
 
+    <link rel="shortcut icon" href="images/img-01.png">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <!--===============================================================================================-->
@@ -42,7 +44,7 @@
                     <img src="images/img-01.png" alt="IMG">
                 </div>
 
-                <form id="form" class="login100-form validate-form">
+                <div class="form"></div>
 
                 </form>
             </div>
@@ -61,7 +63,7 @@
 
     <!-- Initialize Firebase -->
     <script src="/__/firebase/init.js"></script>
-    <script src="/js/firebase-init.js"></script>
+    <script src="/login/js/firebase-init.js"></script>
 
     <!--===============================================================================================-->
     <script>
@@ -73,7 +75,7 @@
                 // Does some stuff and logs the event to the console
                 var bodyStyles = window.getComputedStyle(document.body);
                 var accent_color = bodyStyles.getPropertyValue('--accent-highlight-color');
-                $("#form").load("forms/login.html", function(response, status, xhr) {
+                $(".form").load("forms/login.html", function(response, status, xhr) {
                     if (status == "error") {
                         var msg = "Sorry but there was an error: ";
                         // $("#error").html(msg + xhr.status + " " + xhr.statusText);

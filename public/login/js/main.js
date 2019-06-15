@@ -4,21 +4,30 @@
 
     /*==================================================================
     [ Validate ]*/
-    var input = $('.validate-input .input100');
+    var input = $('.mail-login .input100');
 
-    $('.validate-form').on('submit', function() {
-        var check = true;
-
-        for (var i = 0; i < input.length; i++) {
-            if (validate(input[i]) == false) {
-                showValidate(input[i]);
-                check = false;
-            }
+    // Listen to submit event on the <form> itself!
+    $('.mail-login').submit(function(e) {
+        e.preventDefault();
+        var check = validate($('#email'));
+        if (check) {
+            var email = $('#email').val();
+            var password = $('#password').val();
+            firebase.auth().languageCode = 'AR';
+            //Sign In User with Email and Password
+            firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                if (errorCode == 'auth/user-not-found') {
+                    alert('heyyyy');
+                }
+            });
         }
         return check;
     });
 
-    $('.validate-form .input100').each(function() {
+    $('.mail-login .input100').each(function() {
         $(this).focus(function() {
             hideValidate(this);
         });
@@ -28,29 +37,21 @@
         if ($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
             if ($(input).val().trim().match(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/) == null) {
                 return false;
-            } else {
-                // send request
             }
         } else if ($(input).attr('name') == 'passcode') {
             if ($(input).val().trim().match(/^\d{6}$/) == null) {
                 return false;
-            } else {
-                // send request
-                return true;
             }
         } else if ($(input).attr('type') == 'password' || $(input).attr('name') == 'password') {
-            if ($(input).val().match(/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/) == null ||
-                $(input).val().trim().length < 15) {
+            if ($(input).val().match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$/) == null) {
                 return false;
-            } else {
-                // send request
-                return true;
             }
         } else {
             if ($(input).val().trim() == '') {
                 return false;
             }
         }
+        return true;
     }
 
     function showValidate(input) {
@@ -94,6 +95,7 @@ $("#google-signin").click(function() {
         // ...
     });
 });
+
 $("#fb-signin").click(function() {
     alert("facebook.");
 });
