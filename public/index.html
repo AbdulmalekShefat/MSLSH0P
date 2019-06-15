@@ -68,9 +68,15 @@
                         photoUrl = user.photoURL;
                         emailVerified = user.emailVerified;
                         uid = user.uid;
-                        $("#user-photo").attr("src", photoUrl);
-                        $("#name").html(name);
-                        $("#email").html(email);
+                        if (photoUrl) {
+                            $("#user-photo").attr("src", photoUrl);
+                        }
+                        if (name != 'null') {
+                            $("#name").html(name);
+                        }
+                        if (email) {
+                            $("#email").html(email);
+                        }
                     }
                 });
             } else {

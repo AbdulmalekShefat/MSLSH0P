@@ -32,24 +32,25 @@
     // var input = $('.mail-signup .input100');
     $('.mail-signup').submit(function(e) {
         e.preventDefault();
-        alert('Sign up');
-        return true;
-        // var check = validate('#email') && validate('#password') && validate('#password-confirm');
-        // alert(check);
-        // var email = $('#email').val().trim();
-        // var password = $('#password').val();
-        // var password2 = $('#password-confirm').val();
-        // if (check && (password == password2)) {
-        //     //Sign Up User with Email and Password
-        //     firebase.auth().createUserWithEmailAndPassword(email, password)
-        //         .catch(function(error) {
-        //             // Handle Errors here.
-        //             var errorCode = error.code;
-        //             var errorMessage = error.message;
-        //             alert(errorMessage);
-        //         });
-        // }
-        // return check;
+        var check = validate('#email') && validate('#password') && validate('#password-confirm');
+        var email = $('#email').val().trim();
+        var password = $('#password').val();
+        var password2 = $('#password-confirm').val();
+        console.log(email);
+        console.log(password);
+        console.log(password2);
+        if (check && (password == password2)) {
+            console.log(check && (password == password2));
+            //Sign Up User with Email and Password
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        }
+        return check;
     });
 
     // Listen to submit event on the <form> itself!
@@ -126,26 +127,9 @@
 
 })(jQuery);
 
-// redirects
-
-$('#reset-password-btn').click(function() {
-    $(".form").load("forms/reset-password.html", function(response, status, xhr) {
-        if (status == "error") {
-            var msg = "Sorry but there was an error: ";
-        } else {
-
-        }
-    });
-});
-
-$('#new-account').click(function() {
-    $(".form").load("forms/signup.html", function(response, status, xhr) {
-        if (status == "error") {
-            var msg = "Sorry but there was an error: ";
-        } else {
-
-        }
-    });
+// eah
+$('#sign-in').click(function() {
+    window.location.replace("/login/");
 });
 
 // FirebaseAuth
