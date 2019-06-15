@@ -254,7 +254,7 @@ iframe {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 80px;
+    padding: 40px 80px 40px 80px;
 }
 
 
@@ -264,7 +264,7 @@ iframe {
 .login100-pic {
     width: 316px;
     margin-top: auto;
-    margin-bottom: auto
+    margin-bottom: auto;
 }
 
 .login100-pic img {
@@ -419,17 +419,13 @@ iframe {
     transition: all 0.4s;
 }
 
-.login100-form-btn:hover {
-    background: #333333;
-}
-
 
 /*------------------------------------------------------------------
 [ Responsive ]*/
 
 @media (max-width: 992px) {
     .wrap-login100 {
-        padding: 50px 90px 50px 90px;
+        padding: 30px 90px 30px 90px;
     }
     .login100-pic {
         width: 35%;
@@ -445,7 +441,7 @@ iframe {
 
 @media (max-width: 768px) {
     .wrap-login100 {
-        padding: 40px 80px 40px 80px;
+        padding: 20px 80px 20px 80px;
     }
     .login100-pic {
         display: none;
@@ -461,7 +457,7 @@ iframe {
 
 @media (max-width: 576px) {
     .wrap-login100 {
-        padding: 40px 15px 40px 15px;
+        padding: 20px 15px 20px 15px;
     }
     .login100-form-title {
         font-family: Poppins-Bold;
@@ -535,4 +531,14 @@ iframe {
         left: 30px;
         font-size: 12px;
     }
+}
+
+.login100-form-btn:focus,
+.login100-form-btn:hover {
+    box-shadow: 1px 2px 6px 2px darkgrey;
+}
+
+.login100-form-btn:active {
+    box-shadow: none;
+    transition-duration: 10ms;
 }
