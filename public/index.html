@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>MSL SH0P</title>
 
-    <link rel="shortcut icon" href="images/img-01.png">
+    <link rel="shortcut icon" href="images/round-person_outline-24px.svg">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -31,6 +31,7 @@
         <div id="header"></div>
     </header>
     <main>
+
     </main>
 
     <!-- Firebase Scripts -->
@@ -72,10 +73,14 @@
                             $("#user-photo").attr("src", photoUrl);
                         }
                         if (name != 'null') {
-                            $("#name").html(name);
+                            if (user.emailVerified && user.phoneNumber == null) {
+                                $("#name").html("<i class=\"tiny material-icons\">verified_user</i> " + name);
+                            } else {
+                                $("#name").html(name);
+                            }
                         }
                         if (email) {
-                            $("#email").html(email);
+                            $("#email").text(email);
                         }
                     }
                 });

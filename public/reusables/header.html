@@ -18,10 +18,14 @@
             <div class="background">
                 <img src="/images/ly.jpg">
             </div>
-            <a><img id="user-photo" class="circle dropdown-trigger" href='#' data-target='profile-menu' src="/images/round-person_outline-24px.svg"></a>
-            <a><span id="name" class="white-text name center-align">
-                    <i class="material-icons">verified_user</i>
-                </span></a>
+            <div>
+                <a id="profile-menu-btn" class='dropdown-trigger btn' href='#' data-target='profile-menu'>
+                    <i class="right material-icons">arrow_drop_down</i>
+                </a>
+            </div>
+            <a><img id="user-photo" class="circle" src="/images/round-person_outline-24px.svg"></a>
+            <a><span id="name"
+                    class="white-text name center-align"></span></a>
             <a><span id="email" class="white-text email center-align"></span></a>
         </div>
     </li>
@@ -77,4 +81,13 @@
             <i class="right material-icons" style="margin-right: 0px;margin-left: 16px;">priority_high</i>سياسة الخصوصية
         </a>
     </li>
+</ul>
+<!-- Dropdown Structure -->
+<ul id='profile-menu' class='dropdown-content'>
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider" tabindex="-1"></li>
+    <li><a href="#!">three</a></li>
+    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
 </ul>
